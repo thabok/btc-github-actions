@@ -35,7 +35,9 @@ print('[BTC] Generating stimuli vectors... ', end='')
 response = ep.get_req('coverage-generation/')
 vector_generation_config = json.loads(response.content)
 # overwriting defaults to only target Statement coverage
-vector_generation_config['targetDefinitions'] = [ { 'label': 'Statement', 'enabled': True } ]
+vector_generation_config['targetDefinitions'] = [
+    { 'label': 'Statement', 'enabled': True },
+    { 'label': 'Downcast',  'enabled': True } ]
 vector_generation_config['engineSettings']['engineAtg']['timeoutSecondsPerSubsystem'] = 15
 for engine in vector_generation_config['engineSettings']['engineCv']['coreEngines']:
     if not engine['name'] == 'ISAT':
