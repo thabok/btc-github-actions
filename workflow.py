@@ -4,7 +4,8 @@ import json, sys
 #### GLOBAL CONFIG VARIABLES
 VERSION = '22.1p0'
 INSTALL_LOCATION="E:/Program Files/BTC/ep{}/rcp/ep.exe".format(VERSION)
-WORKSPACE = sys.argv[1]                      # the entrypoint directory must be passed as an argument
+#WORKSPACE = sys.argv[1]                      # the entrypoint directory must be passed as an argument
+WORKSPACE = "C:/actions-runner/_work/btc-github-actions/btc-github-actions"
 PROFILE_PATH = WORKSPACE + "/profile.epp"    # this points to a .epp profile FILE
 REPORT_DIR = WORKSPACE + "/reports"          # this is a DIRECTORY, not a file
 
@@ -24,16 +25,6 @@ response = ep.get_req('profiles/' + PROFILE_PATH)
 
 ##########------------------- STEP 2: update architecture -------------------##########
 response = ep.put_req('architectures/')
-
-
-##########------------------- STEP 3: run req.-based tests -------------------##########
-response = ep.get_req('test-cases-rbt')
-test_cases = json.loads(response.content)
-rbt_execution_info = {}
-rbt_execution_info.UIDs = [tc.uid for tc in test_cases]
-rbt_execution_info.data = {}
-rbt_execution_info.data.executionConfigNames = [ "TL MIL", "SIL" ]
-response = ep.post_req('test-cases-rbt/test-execution-rbt')
 
 
 ##########------------------- STEP 4: generate vectors -------------------##########
