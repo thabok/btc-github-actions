@@ -14,4 +14,4 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v2
       - name: run test workflow
-        run:  python workflow.py
+        run:  python workflow.py ${env:GITHUB_WORKSPACE}
