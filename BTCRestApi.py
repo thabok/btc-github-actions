@@ -16,7 +16,7 @@ class EPRestApi:
         self.definitively_closed = False
         if not self.is_rest_service_available():
             appdata_location = os.environ['APPDATA'].replace('\\', '/') + r'/BTC/ep/' + version + '/'
-            print('Waiting for BTC EmbeddedPlatform to be available:')
+            #print('Waiting for BTC EmbeddedPlatform to be available:')
             ml_port = 29300 + (rest_port % 100)
             if ml_port == rest_port:
                 ml_port -= 100
@@ -39,8 +39,8 @@ class EPRestApi:
             return
         while not self.is_rest_service_available():
             time.sleep(2)
-            print('.', end='')
-        print('\nBTC EmbeddedPlatform has started.')
+            #print('.', end='')
+        #print('\nBTC EmbeddedPlatform has started.')
 
     # closes the application
     def close_application(self):
@@ -62,7 +62,8 @@ class EPRestApi:
     def get_req(self, urlappendix):
         if not 'progress' in urlappendix:
             # print this unless it's a progress query (to avoid flooding the console)
-            print('Fetching from: '+ self._url(urlappendix))
+            # print('Fetching from: '+ self._url(urlappendix))
+            pass
         response = requests.get(self._url(urlappendix))
         if not response.ok:
             raise Exception("Error during request GET {}: {}".format(urlappendix, response.text))
@@ -70,7 +71,7 @@ class EPRestApi:
 
     # Performs a post request on the given url extension. The optional requestBody contains the information necessary for the request
     def post_req(self, urlappendix, requestBody=None):
-        print('Posting to: ' +  self._url(urlappendix))
+        # print('Posting to: ' +  self._url(urlappendix))
         if requestBody == None:
             response = requests.post(self._url(urlappendix))
         else:
@@ -81,7 +82,7 @@ class EPRestApi:
 
     # Performs a post request on the given url extension. The optional requestBody contains the information necessary for the request
     def put_req(self, urlappendix, requestBody=None):
-        print('Posting to: ' +  self._url(urlappendix))
+        # print('Posting to: ' +  self._url(urlappendix))
         if requestBody == None:
             response = requests.put(self._url(urlappendix))
         else:
@@ -113,9 +114,9 @@ class EPRestApi:
                         time.sleep(2)
                         #t += 2
                         #print('... {} s elapsed'.format(t))
-                        print('.', end='')
+                        #print('.', end='')
                         response = self.poll_long_running(value)
-                    print('')
+                    #print('')
         return response
 
     def poll_long_running(self, jobID):
