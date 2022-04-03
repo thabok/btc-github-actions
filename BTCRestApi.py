@@ -50,13 +50,13 @@ class EPRestApi:
         print("Data saved!")
         self.definitively_closed = True
 
-    def __del__(self):
+    # def __del__(self):
         # might already be closed. not our problem.
-        if not self.definitively_closed:
-            try: 
-                self.close_application()
-            except:
-                pass
+        # if not self.definitively_closed:
+        #     try: 
+        #         self.close_application()
+        #     except:
+        #         pass
 
     # Performs a get request on the given url extension
     def get_req(self, urlappendix):
