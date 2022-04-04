@@ -1,12 +1,16 @@
 from BTCRestApi import *
-import json, sys
+from zipfile import ZipFile
+import os, json, sys
+from os.path import basename
 
 #### GLOBAL CONFIG VARIABLES
 VERSION = '22.1p0'
 INSTALL_LOCATION="E:/Program Files/BTC/ep{}/rcp/ep.exe".format(VERSION)
-WORKSPACE = sys.argv[1]                      # the entrypoint directory must be passed as an argument
+# WORKSPACE = sys.argv[1]                      # the entrypoint directory must be passed as an argument
+WORKSPACE = 'C:/actions-runner/_work/btc-github-actions/btc-github-actions'
 PROFILE_PATH = WORKSPACE + "/profile.epp"    # this points to a .epp profile FILE
 REPORT_DIR = WORKSPACE + "/reports"          # this is a DIRECTORY, not a file
+REPORT_ARCHIVE = 'btc-reports.zip'
 
 print('[BTC] Connecting to BTC EmbeddedPlatform... ', end='')
 ep = EPRestApi(29268, INSTALL_LOCATION, VERSION)
@@ -58,16 +62,21 @@ print(b2b_test['verdictStatus'])
 
 
 print('[BTC] Creating HTML reports... ', end='')
-##########------------------- STEP 6: B2B Test Results HTML Report -------------------##########
+# B2B Test Results HTML Report
 response = ep.post_req('b2b/{}/b2b-reports'.format(b2b_test_uid))
 b2b_report_uid = json.loads(response.content)['uid']
 response = ep.post_req('reports/' + b2b_report_uid, { 'exportPath': REPORT_DIR, 'newName': 'B2BTestReport' })
-
-
-##########------------------- STEP 7: B2B Coverage HTML Report -------------------##########
+# B2B Coverage HTML Report
 response = ep.post_req('scopes/{}/code-analysis-reports-b2b'.format(toplevelScopeUid))
 coverage_report_uid = json.loads(response.content)['uid']
 response = ep.post_req('reports/' + coverage_report_uid, { 'exportPath': REPORT_DIR, 'newName': 'CoverageReport' })
+
+with ZipFile(REPORT_ARCHIVE, 'w') as zipObj:
+   for folderName, subfolders, filenames in os.walk(REPORT_DIR):
+       for filename in filenames:
+           filePath = os.path.join(folderName, filename)
+           zipObj.write(filePath, os.path.relpath(filePath, REPORT_DIR))
+
 print('done')
 
 if not b2b_test['verdictStatus'] == 'PASSED':

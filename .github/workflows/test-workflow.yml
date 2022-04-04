@@ -15,3 +15,9 @@ jobs:
         uses: actions/checkout@v2
       - name: run test workflow
         run:  python workflow.py ${env:GITHUB_WORKSPACE}
+        - uses: actions/upload-artifact@v3
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: btc-reports
+          path: btc-reports.zip
