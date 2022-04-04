@@ -71,7 +71,8 @@ response = ep.post_req('reports/' + coverage_report_uid, { 'exportPath': REPORT_
 print('done')
 
 if not b2b_test['verdictStatus'] == 'PASSED':
-    raise Exception("B2B Test completed with verdict status " + b2b_test['verdictStatus'])
+    print('B2B Test completed with verdict status ' + b2b_test['verdictStatus'])
+    exit(1)
 
 # when the ep object dies its garbage collector will automatically close everything for us :D
 print("Finished with workflow.")

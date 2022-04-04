@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "4.1"
+    ComputedModelVersion    "4.2"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -221,9 +221,9 @@ Model {
   ModifiedByFormat	  "Yatish Chitluri"
   LastModifiedBy	  "Yatish Chitluri"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Apr 04 11:13:31 2022"
-  RTWModifiedTimeStamp	  570971594
-  ModelVersionFormat	  "%<AutoIncrement:4.1>"
+  LastModifiedDate	  "Mon Apr 04 11:53:20 2022"
+  RTWModifiedTimeStamp	  570973998
+  ModelVersionFormat	  "%<AutoIncrement:4.2>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -2427,8 +2427,8 @@ Model {
 		    Type		    "edit"
 		    Name		    "data"
 		    Prompt		    "data"
-		    Value		    "{'output',{'max',0.45,'min',0,'class','FCN_ARG','type','UInt16','scaling','position'},'autoscaling',"
-		    "{'mode',0},'date',738615.4675268518}"
+		    Value		    "{'output',{'max',0.45,'min',0,'class','FCN_ARG','type','UInt8','scaling','position'},'autoscaling',{"
+		    "'mode',0},'date',738615.49534922454}"
 		    Evaluate		    "off"
 		    Internal		    "on"
 		    Visible		    "off"
