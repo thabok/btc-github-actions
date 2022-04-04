@@ -23,7 +23,7 @@ ep.put_req('preferences', preferences)
 print('[BTC] Importing TargetLink Model... ', end='')
 response = ep.post_req('profiles?discardCurrentProfile=true', )
 tl_import_payload = {
-    'tlModelFile': WORKSPACE + '/powerwindow_tl/powerwindow_tl_v04.slx',
+    'tlModelFile': WORKSPACE + '/powerwindow_tl/powerwindow_tl_v04.mdl',
     'tlInitScript': WORKSPACE + '/powerwindow_tl/start.m'
 }
 response = ep.post_req('architectures/targetlink', tl_import_payload)
