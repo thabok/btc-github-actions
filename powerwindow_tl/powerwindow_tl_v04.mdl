@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "4.2"
+    ComputedModelVersion    "4.3"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -130,10 +130,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "33"
-	  Extents		  [3220.0, 1718.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-529.77734375, -230.0]
-	  SceneRectInView	  [-529.77734375, -230.0, 1610.0, 859.0]
+	  Extents		  [2975.0, 1718.0]
+	  ZoomFactor		  [2.0]
+	  Offset		  [-64.976561559867662, -17.710469314079461]
+	  SceneRectInView	  [-64.976561559867662, -17.710469314079461, 743.75, 429.5]
 	}
 	Object {
 	  $ObjectID		  6
@@ -164,19 +164,6 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  8
-	  Type			  "GLUE2:PropertyInspector"
-	  ID			  "Property Inspector"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  ""
-	  Floating		  [0]
-	  DockPosition		  "Right"
-	  Width			  [320]
-	  Height		  [240]
-	  Minimized		  "Unset"
-	}
-	Object {
-	  $ObjectID		  9
 	  Type			  "Simulink:Editor:ReferencedFiles"
 	  ID			  "Referenced Files"
 	  Visible		  [0]
@@ -188,14 +175,27 @@ Model {
 	  Height		  [240]
 	  Minimized		  "Unset"
 	}
+	Object {
+	  $ObjectID		  9
+	  Type			  "GLUE2:PropertyInspector"
+	  ID			  "Property Inspector"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  ""
+	  Floating		  [0]
+	  DockPosition		  "Right"
+	  Width			  [320]
+	  Height		  [240]
+	  Minimized		  "Unset"
+	}
 	PropName		"DockComponentsInfo"
       }
-      WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAEuAAAHEfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
+      WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAIjAAAHEfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQBAAABFwAABxEAAADAAP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
       "QBzAAAAAAD/////AAABAAD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAA1QA////AAAM2gAABxEAAAABAAAAAgAAAAEAAAAC/"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAA1QA////AAAL5QAABxEAAAABAAAAAgAAAAEAAAAC/"
       "AAAAAEAAAACAAAAAf////8BAAAAAP////8AAAAAAAAAAA=="
       Array {
 	Type			"Cell"
@@ -221,9 +221,9 @@ Model {
   ModifiedByFormat	  "Yatish Chitluri"
   LastModifiedBy	  "Yatish Chitluri"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Apr 04 11:53:20 2022"
-  RTWModifiedTimeStamp	  570973998
-  ModelVersionFormat	  "%<AutoIncrement:4.2>"
+  LastModifiedDate	  "Thu Apr 14 09:45:13 2022"
+  RTWModifiedTimeStamp	  571830307
+  ModelVersionFormat	  "%<AutoIncrement:4.3>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -2354,7 +2354,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
+		    ZoomFactor		    "200"
 		    SimulinkSubDomain	    "Simulink"
 		    Block {
 		    BlockType		    Inport
@@ -2427,8 +2427,8 @@ Model {
 		    Type		    "edit"
 		    Name		    "data"
 		    Prompt		    "data"
-		    Value		    "{'output',{'max',0.45,'min',0,'class','FCN_ARG','type','UInt8','scaling','position'},'autoscaling',{"
-		    "'mode',0},'date',738615.49534922454}"
+		    Value		    "{'output',{'max',0.45,'min',0,'class','FCN_ARG','type','UInt16','scaling','position'},'autoscaling',"
+		    "{'mode',0},'date',738625.40633156255}"
 		    Evaluate		    "off"
 		    Internal		    "on"
 		    Visible		    "off"
